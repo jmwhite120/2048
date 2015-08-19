@@ -31,11 +31,18 @@ board[a][b] = 2;
 
 function arrowPress(e) {
   if (e.keyCode == '38') { // up arrow
-      for(var i = 0; i<=3; i++){
+      for(var i = 1; i<=3; i++){
       for(var j = 0; j <= 3; j++){
         console.log("nfeiwo")
-        //if(board[0][j] != 0){
-            if(board[2][j] == 0){ 
+        if(board[i-1][j] == 0){
+            board[i-1][j] = board[i][j];
+            board[i][j]= 0;
+         }
+        if(board[i-1][j] == 0){
+            board[i-1][j] = board[i][j] * 2;
+            board[i][j]= 0;
+         }
+            /*if(board[2][j] == 0){ 
             board[2][j] = board[1][j];
             board[1][j] = 0
             }
@@ -46,8 +53,8 @@ function arrowPress(e) {
           if(board[3][j] == 0){ 
           board[3][j] = board[2][j];
           board[2][j] = 0
-           }
-               }     
+           }*/
+              
     }
      } //}
 
